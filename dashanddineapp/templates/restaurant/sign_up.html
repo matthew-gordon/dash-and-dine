@@ -16,7 +16,12 @@
   </head>
 
   <body>
-    <h1>Restaurant Sign Up</h1>
-    
+    <form method="POST">
+      {% csrf_token %}
+      {{ user_form }}
+      {{ restaurant_form }}
+      <button type="submit" name="sign_up">Sign Up</button>
+    </form>
+
   </body>
 </html>
