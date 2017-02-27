@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dash &amp; Dine - Home</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  </head>
+
+  <body>
+
+    Restaurant Page
+    <a href="{% url 'restaurant-sign-out' %}">Logout</a>
+  </body>
+</html>
