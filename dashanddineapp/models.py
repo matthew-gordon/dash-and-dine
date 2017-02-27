@@ -11,5 +11,6 @@ class Restaurant(models.Model):
     # TODO: pip install pillow
     logo = models.ImageField(upload_to='restaurant_logo/', blank=False)
 
+    # Displays restaurant name in admin dashboard
     def __str__(self):
         return self.name
