@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'^restaurant/sign-up/$', views.restaurant_sign_up,
         name  = 'restaurant-sign-up'),
     url(r'^restaurant/$', views.restaurant_home, name = 'home'),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
