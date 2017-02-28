@@ -1,3 +1,8 @@
+body {
+  padding-top: 50px;
+  overflow: auto;
+}
+
 .bg-gray{
   background: #eee;
 }
@@ -22,4 +27,28 @@
   font-size: 5em;
   color: #0367B4;
   border-color: #0367B4;
+}
+
+/***** SIDEBAR *****/
+
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  background-color: #098BEF;
+  overflow: auto;
+}
+
+/***** SIDEBAR - HEADER *****/
+.sidebar > div:first-child {
+  padding: 30px 10px;
+  font-weight: bold;
+  font-size: 1em;
+  background-color: #098BEE;
+}
+
+.sidebar > div:first-child > h4 {
+  color: #e0deeb;
 }

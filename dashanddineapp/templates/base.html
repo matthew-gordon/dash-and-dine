@@ -21,7 +21,16 @@
 
   <body>
 
-    {% block sidebar %}{% endblock %}
-    {% block page %}{%  endblock %}
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 col-sm-2 sidebar">
+          {% block sidebar %}{% endblock %}
+        </div><!-- col -->
+        <div class="col-md-10 col-sm-10">
+          {% block page %}{%  endblock %}
+        </div><!-- col -->
+      </div><!-- row -->
+    </div><!-- container-fluid -->
+
   </body>
 </html>
