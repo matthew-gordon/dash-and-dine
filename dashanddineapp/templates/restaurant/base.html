@@ -4,10 +4,10 @@
 
 {% block sidebar %}
   <div class="text-center">
-    <img src="{{ MEDIA_URL }}{{ request.user.restaurant.logo }}" class="img-circle" width="70" height="70" alt="Restaurant logo">
+    <img src="{{ MEDIA_URL }}{{ request.user.restaurant.logo }}" class="img-rounded" alt="Restaurant logo">
     <br>
     <br>
-    <h4>Hi, {{ request.user.get_full_name }} </h4>
+    <h4>Welcome, {{ request.user.get_full_name }} </h4>
     <h5>{{ request.user.restaurant.name }}</h5>
   </div>
 
@@ -24,7 +24,7 @@
   </div>
 
   <div class="text-center">
-    <a href="{% url 'restaurant-sign-out' %}?next={{ request.path }}" class="btn btn-danger">SIGN OUT</a>
+    <a href="{% url 'restaurant-sign-out' %}?next={{ request.path }}" class="btn btn-danger"><i class="fa fa-sign-in fa-lg"></i> SIGN OUT</a>
   </div>
 
 {% endblock %}

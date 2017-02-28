@@ -3,6 +3,15 @@ body {
   overflow: auto;
 }
 
+img {
+  width: 100%
+}
+
+.logo {
+  width: 7rem;
+  height: 7rem;
+}
+
 .bg-gray{
   background: #eee;
 }
@@ -47,11 +56,11 @@ body {
   padding: 30px 10px;
   font-weight: bold;
   font-size: 1em;
-  background-color: #098BEE;
+  background-color: #036EC0;
 }
 
 .sidebar > div:first-child > h4 {
-  color: #fff;
+  color: #eee;
 }
 
 .sidebar > div:first-child > h5 {
@@ -114,4 +123,8 @@ body {
 
 .content {
   padding: 0 4rem;
+}
+
+.content .panel {
+  border: none;
 }
