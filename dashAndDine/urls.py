@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from django.contrib import admin
-from DashAndDineapp import views
+from dashAndDineapp import views
 from django.contrib.auth import views as auth_views
 
 from django.conf.urls.static import static
