@@ -1,28 +1,13 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Dash &amp; Dine - Sign Up</title>
+{% extends 'base_signup.html' %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+{% block title %}Login{% endblock %}
+{% block heading %}Restaurant - Sign In{% endblock %}
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-
-    <!-- Bootstrap JS -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  </head>
-
-  <body>
-    
-    <form method="POST" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{ user_form }}
-      {{ restaurant_form }}
-      <button type="submit" name="sign_up">Sign Up</button>
-    </form>
-
-  </body>
-</html>
+{% block content %}
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form }}
+    {{ restaurant_form }}
+    <button type="submit" name="sign_up">Sign Up</button>
+  </form>
+{% endblock %}
