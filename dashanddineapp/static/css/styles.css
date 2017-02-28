@@ -42,6 +42,7 @@ body {
 }
 
 /***** SIDEBAR - HEADER *****/
+
 .sidebar > div:first-child {
   padding: 30px 10px;
   font-weight: bold;
@@ -50,5 +51,67 @@ body {
 }
 
 .sidebar > div:first-child > h4 {
-  color: #e0deeb;
+  color: #fff;
+}
+
+.sidebar > div:first-child > h5 {
+  color: #eee;
+}
+
+/***** SIDEBAR - LIST *****/
+
+.sidebar .list-group {
+    padding: 0;
+    background-color: #098BEF;
+}
+
+.sidebar .list-group > span {
+  color: #eee;
+  display: block;
+  margin-top: 2rem;
+  padding: 2rem 3rem;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.sidebar .list-group .list-group-item,
+.sidebar .list-group .list-group-item:focus {
+  background-color: #098BEF;
+  color: #fff;
+  border: 0;
+  padding-left: 6rem;
+  padding-right: 3rem;
+}
+
+.sidebar .list-group .list-group-item.active,
+.sidebar .list-group .list-group-item:hover {
+  background-color: #024F8B;
+  color: #eee;
+}
+
+.sidebar .list-group .list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.sidebar .list-group .list-group-item .badge,
+.sidebar .list-group .list-group-item.active .badge {
+  background-color:  #EE5462;
+  color: #fff;
+}
+
+/***** SIDEBAR - LOGOUT *****/
+
+.sidebar > div:last-child {
+  padding: 3rem;
+}
+
+.sidebar > div:last-child .btn {
+  width: 100%
+}
+
+/***** CONTENT *****/
+
+.content {
+  padding: 0 4rem;
 }
