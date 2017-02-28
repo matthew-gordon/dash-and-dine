@@ -5,19 +5,49 @@
     <meta charset="utf-8">
     <title>{% block title %}{% endblock %}</title>
 
+    <!-- Font awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
   </head>
 
-  <body>
+  <body class="bg-gray">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-md-offset-3">
 
-    {% block heading %}{% endblock %}
-    {% block content %}{%  endblock %}
+          <div class="panel panel-body valign">
+            <div class="col-md-5 border text-center">
+              <h2>Dash &amp; Dine</h2>
+              <br>
+              <span class="fa fa-cutlery fa-5x fa-border icon"></span>
+            </div>
+            <div class="col-md-7">
+              <h3 class="text-center text-uppercase">
+                <b>{% block heading %}{% endblock %}</b>
+              </h3>
+              <br>
+              {% block content %}{%  endblock %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

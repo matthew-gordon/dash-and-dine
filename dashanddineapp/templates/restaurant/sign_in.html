@@ -1,14 +1,17 @@
 {% extends 'base_signup.html' %}
+{% load bootstrap3 %}
 
 {% block title %}Login{% endblock %}
-{% block heading %}Restaurant - Sign In{% endblock %}
 
 {% block content %}
+
   <form method="POST">
     <!-- token -->
     {% csrf_token %}
     <!-- pre-defined django auth form -->
-    {{ form }}
-    <button type="submit" name="sign_in">Sign In</button>
+    {% bootstrap_form form %}
+    <button type="submit" name="sign_in" class="btn btn-blue"><i class="fa fa-sign-in fa-lg"></i> Sign In</button>
+
   </form>
+  <a href="{% url 'restaurant-sign-up' %}">Become a Restaurant</a>
 {% endblock %}

@@ -1,0 +1,25 @@
+.bg-gray{
+  background: #eee;
+}
+
+.btn-blue {
+  color: #fff;
+  background: #0367B4;
+}
+
+.btn-blue:hover,
+.btn-focus:focus {
+  color: #fff;
+  background: #098BEF;
+}
+
+.border {
+  height: 250px;
+  border-right: 1px solid #eee;
+}
+
+.icon {
+  font-size: 5em;
+  color: #0367B4;
+  border-color: #0367B4;
+}
