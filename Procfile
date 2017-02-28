@@ -1,1 +1,1 @@
-web: gunicorn dashanddine.wsgi --log-file -
+web: gunicorn DashAndDine.wsgi --log-file -

@@ -1,7 +1,7 @@
 from django import forms
 
 from django.contrib.auth.models import User
-from dashanddineapp.models import Restaurant
+from DashAndDineapp.models import Restaurant
 
 class UserForm(forms.ModelForm):
     email = forms.CharField(max_length=100, required=True)

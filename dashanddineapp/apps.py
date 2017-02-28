@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class dashanddineappConfig(AppConfig):
-    name = 'dashanddineapp'
+class DashAndDineappConfig(AppConfig):
+    name = 'DashAndDineapp'
