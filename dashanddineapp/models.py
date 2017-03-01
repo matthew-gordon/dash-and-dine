@@ -70,7 +70,7 @@ class OrderDetails(models.Model):
     class Meta:
         verbose_name_plural = "details"
 
-    order = models.ForeignKey(Order, related_name='order_details')
+    order = models.ForeignKey(Order, related_name="order_details")
     meal = models.ForeignKey(Meal)
     quantity = models.IntegerField()
     sub_total = models.IntegerField()
