@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
     # /convert-token (login/register)
     # /revoke-token (logout)
+    url(r'^api/restaurant/order/notification/(?P<last_request_time>.+)/$', apis.restaurant_order_notification),
 
     # APIs for CUSTOMERS
     url(r'^api/customer/restaurant/$', apis.customer_get_restaurants),
