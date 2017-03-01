@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from oauth2_provider.models import AccessToken
 
 from dashanddineapp.models import Restaurant, Meal, Order, OrderDetails
-from dashanddineapp.serializers import RestaurantSerializer, MealSerializer
+from dashanddineapp.serializers import RestaurantSerializer, MealSerializer, OrderDetailsSerializer, OrderSerializer
 
 def customer_get_restaurants(request):
     restaurants = RestaurantSerializer(
@@ -87,7 +87,15 @@ def customer_add_order(request):
             return JsonResponse({"status": "success"})
 
 def customer_get_latest_order(request):
-    return JsonResponse({})
+    access_token = AccessToken.objects.get(token = request.GET.get("access_token"),
+        expires__gt = timezone.now())
+
+    customer = access_token.user.customer
+    order = OrderSerializer(Order.objects.filter(customer = customer).last()).data
+
+    return JsonResponse({
+        "order": order
+    })
 
 def restaurant_order_notification(request, last_request_time):
     notification = Order.objects.filter(restaurant=request.user.restaurant,
