@@ -4,7 +4,7 @@
 
 {% block sidebar %}
   <div class="text-center">
-    <img src="{{ MEDIA_URL }}{{ request.user.restaurant.logo }}" class="img-rounded" alt="Restaurant logo">
+    <img src="{{ MEDIA_URL }}{{ request.user.restaurant.logo }}" class="img-circle logo" alt="Restaurant logo">
     <br>
     <br>
     <h4>Welcome, {{ request.user.get_full_name }} </h4>

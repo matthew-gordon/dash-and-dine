@@ -3,17 +3,18 @@ body {
   overflow: auto;
 }
 
-img {
-  width: 100%
-}
-
 .logo {
-  width: 7rem;
-  height: 7rem;
+  width: 10rem;
+  height: 10rem;
 }
 
 .bg-gray{
   background: #eee;
+}
+
+.bg-blue {
+  background: #098BEF;
+  color: white;
 }
 
 .btn-blue {
@@ -127,4 +128,9 @@ img {
 
 .content .panel {
   border: none;
+}
+
+.table > thead > tr > th,
+.table > thead > tr > td {
+  vertical-align: middle;
 }
