@@ -9,7 +9,7 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ("username", "first_name", "last_name")
+        fields = ("username", "first_name", "last_name", "email")
 
 class UserEditForm(forms.ModelForm):
     email = forms.CharField(max_length=100, required=True)

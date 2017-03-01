@@ -1,17 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-
 class Restaurant(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='restaurant')
     name = models.CharField(max_length=500)
     phone = models.CharField(max_length=500)
     address = models.CharField(max_length=500)
-    # TODO: pip install pillow
     logo = models.ImageField(upload_to='restaurant_logo/', blank=False)
 
-    # Displays restaurant name in admin dashboard
     def __str__(self):
         return self.name
 
@@ -21,7 +17,6 @@ class Customer(models.Model):
     phone = models.CharField(max_length=500, blank=True)
     address = models.CharField(max_length=500, blank=True)
 
-    # Displays Customer name in admin dashboard
     def __str__(self):
         return self.user.get_full_name()
 
@@ -31,7 +26,6 @@ class Driver(models.Model):
     phone = models.CharField(max_length=500, blank=True)
     address = models.CharField(max_length=500, blank=True)
 
-    # Displays Driver name in admin dashboard
     def __str__(self):
         return self.user.get_full_name()
 
@@ -39,7 +33,6 @@ class Meal(models.Model):
     restaurant = models.ForeignKey(Restaurant)
     name = models.CharField(max_length=500)
     short_description = models.CharField(max_length=500)
-    name = models.CharField(max_length=500)
     image = models.ImageField(upload_to='meal_images/', blank=False)
     price = models.IntegerField(default=0)
 
