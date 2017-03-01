@@ -9,6 +9,10 @@ from oauth2_provider.models import AccessToken
 from dashanddineapp.models import Restaurant, Meal, Order, OrderDetails
 from dashanddineapp.serializers import RestaurantSerializer, MealSerializer, OrderDetailsSerializer, OrderSerializer
 
+###############
+## CUSTOMER
+###############
+
 def customer_get_restaurants(request):
     restaurants = RestaurantSerializer(
         Restaurant.objects.all().order_by("-id"),
@@ -97,6 +101,10 @@ def customer_get_latest_order(request):
         "order": order
     })
 
+###############
+## RESTAURANT
+###############
+
 def restaurant_order_notification(request, last_request_time):
     notification = Order.objects.filter(restaurant=request.user.restaurant,
         created_at__gt = last_request_time).count()
@@ -104,3 +112,22 @@ def restaurant_order_notification(request, last_request_time):
     return JsonResponse({
         "notification": notification
     })
+
+###############
+## DRIVER
+###############
+
+def driver_get_ready_orders(request):
+    return JsonResponse({})
+
+def driver_pick_up_order(request):
+    return JsonResponse({})
+
+def driver_get_latest_order(request):
+    return JsonResponse({})
+
+def driver_complete_order(request):
+    return JsonResponse({})
+
+def driver_get_revenue(request):
+    return JsonResponse({})
