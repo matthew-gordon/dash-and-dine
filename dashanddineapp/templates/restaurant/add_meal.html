@@ -1,5 +1,21 @@
 {% extends 'restaurant/base.html' %}
+{% load bootstrap3 %}
 
 {% block page %}
-  Add Meal Page
+  <div class="col-md-offset-2 col md-8">
+    <div class="panel">
+      <div class="panel-heading bg-blue">
+        <h4 class="panel-title text-center">
+          Add Meal
+        </h4>
+      </div><!-- panel heading -->
+      <div class="panel-body">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button type="submit" class="btn btn-blue" name="button">Create</button>
+        </form>
+      </div><!-- panel-body -->
+    </div><!-- panel -->
+  </div><!-- col -->
 {% endblock %}
