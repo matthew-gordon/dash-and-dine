@@ -91,7 +91,6 @@
                 labels: {{ meal.labels|safe }},
                 datasets: [
                   {
-                    label: "Revenue by Week",
                     backgroundColor: [
                       "#36A2EB", "#FFCE56", "#FF6384"
                     ],
@@ -113,7 +112,7 @@
       <div class="panel">
           <div class="panel-heading bg-blue">
             <h4 class="panel-title text-center">
-              Top 3 Orders
+              Top 3 Drivers
             </h4>
           </div>
           <div class="panel-body">
@@ -124,7 +123,6 @@
                 labels: {{ driver.labels|safe }},
                 datasets: [
                   {
-                    label: "Revenue by Week",
                     backgroundColor: [
                       "#36A2EB", "#FFCE56", "#FF6384"
                     ],
@@ -134,7 +132,7 @@
               };
 
               new Chart(ctx, {
-                type: 'pie',
+                type: 'doughnut',
                 data: data
               });
 
