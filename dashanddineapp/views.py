@@ -89,13 +89,17 @@ def restaurant_order(request):
         "orders": orders
     })
 
-# @login_required(login_url='/restaurant/sign-in/')
+@login_required(login_url='/restaurant/sign-in/')
 def restaurant_get_customers(request):
+    delivered_orders = Order.objects.filter(
+        restaurant = request.user.restaurant,
+        status = Order.DELIVERED
+    )
     customers = Customer.objects.all()
-    print(customers)
 
     return render(request, 'restaurant/customers.html', {
-        "customers" : customers
+        "customers": customers,
+        "orders": delivered_orders
     })
 
 @login_required(login_url='/restaurant/sign-in/')
