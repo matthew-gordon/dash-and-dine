@@ -76,7 +76,7 @@
     </div>
     <div class="col-md-4">
 
-      <!-- Revenue by Week -->
+      <!-- Top 3 Orders -->
       <div class="panel">
           <div class="panel-heading bg-blue">
             <h4 class="panel-title text-center">
@@ -109,7 +109,7 @@
           </div>
       </div>
 
-      <!-- Top 3 Orders -->
+      <!-- Top 3 Drivers -->
       <div class="panel">
           <div class="panel-heading bg-blue">
             <h4 class="panel-title text-center">
@@ -117,18 +117,18 @@
             </h4>
           </div>
           <div class="panel-body">
-            <canvas id="mealChart" height="242"></canvas>
+            <canvas id="driverChart" height="242"></canvas>
             <script>
-              var ctx = document.getElementById("mealChart").getContext("2d")
+              var ctx = document.getElementById("driverChart").getContext("2d")
               var data = {
-                labels: {{ meal.labels|safe }},
+                labels: {{ driver.labels|safe }},
                 datasets: [
                   {
                     label: "Revenue by Week",
                     backgroundColor: [
                       "#36A2EB", "#FFCE56", "#FF6384"
                     ],
-                    data: [23,45,67]
+                    data: {{ driver.data }}
                   }
                 ]
               };
