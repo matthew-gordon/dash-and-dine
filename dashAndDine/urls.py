@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^restaurant/meal/add/$', views.restaurant_add_meal, name = 'restaurant-add-meal'),
     url(r'^restaurant/meal/edit/(?P<meal_id>\d+)/$', views.restaurant_edit_meal, name = 'restaurant-edit-meal'),
     url(r'^restaurant/order/$', views.restaurant_order, name = 'restaurant-order'),
+    url(r'^restaurant/customers/$', views.restaurant_get_customers, name = 'restaurant-customers'),
     url(r'^restaurant/report/$', views.restaurant_report, name = 'restaurant-report'),
 
     # Register/ Login / Logout
@@ -42,7 +43,7 @@ urlpatterns = [
     url(r'^api/customer/order/latest/$', apis.customer_get_latest_order),
     url(r'^api/customer/driver/location/$', apis.customer_driver_location),
 
-    # APIs for Drivers
+    # APIs for DRIVERS
     url(r'^api/driver/orders/ready/$', apis.driver_get_ready_orders),
     url(r'^api/driver/order/pick_up/$', apis.driver_pick_up_order),
     url(r'^api/driver/order/latest/$', apis.driver_get_latest_order),

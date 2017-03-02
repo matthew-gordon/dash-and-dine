@@ -1,0 +1,21 @@
+{% extends 'restaurant/base.html' %}
+
+{% block page %}
+  <table>
+    <thead>
+      <th>Customer</th>
+      <th>Image</th>
+      <th>Address</th>
+    </thead>
+    <tbody>
+      {% for customer in customers %}
+        <tr>
+          <td>{{ customer }}</td>
+          <td><img src="{{ customer.avatar }}" alt="" height="50" width="50"></td>
+          <td>{{ customer.address }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

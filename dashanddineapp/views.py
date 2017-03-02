@@ -5,7 +5,7 @@ from dashanddineapp.forms import UserForm, RestaurantForm, UserEditForm, MealFor
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
-from dashanddineapp.models import Meal, Order, Driver
+from dashanddineapp.models import Meal, Order, Driver, Customer
 
 from django.db.models import Sum, Count, Case, When
 
@@ -87,6 +87,15 @@ def restaurant_order(request):
     orders = Order.objects.filter(restaurant=request.user.restaurant).order_by("-id")
     return render(request, 'restaurant/order.html', {
         "orders": orders
+    })
+
+# @login_required(login_url='/restaurant/sign-in/')
+def restaurant_get_customers(request):
+    customers = Customer.objects.all()
+    print(customers)
+
+    return render(request, 'restaurant/customers.html', {
+        "customers" : customers
     })
 
 @login_required(login_url='/restaurant/sign-in/')
