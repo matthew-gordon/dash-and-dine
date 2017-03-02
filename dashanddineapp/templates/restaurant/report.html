@@ -88,7 +88,7 @@
             <script>
               var ctx = document.getElementById("mealChart").getContext("2d")
               var data = {
-                labels: ["Meal A", "Meal B", "Meal C"],
+                labels: {{ meal.labels|safe }},
                 datasets: [
                   {
                     label: "Revenue by Week",
@@ -109,31 +109,32 @@
           </div>
       </div>
 
-      <!-- Order by Week -->
+      <!-- Top 3 Orders -->
       <div class="panel">
           <div class="panel-heading bg-blue">
             <h4 class="panel-title text-center">
-              Orders by Week
+              Top 3 Orders
             </h4>
           </div>
           <div class="panel-body">
-            <canvas id="orderChart" height="110"></canvas>
+            <canvas id="mealChart" height="242"></canvas>
             <script>
-              var ctx = document.getElementById("orderChart").getContext("2d")
+              var ctx = document.getElementById("mealChart").getContext("2d")
               var data = {
-                labels: ["Mon", "Tues", "Wed", "Thu", "Fri", "Sat", "Sun"],
+                labels: {{ meal.labels|safe }},
                 datasets: [
                   {
-                    label: "Orders by Week",
-                    backgroundColor: "rgba(255,99,132,0.9)",
-                    hoverBackgroundColor: "rgba(255,99,132,1.0)",
-                    data: {{ orders }}
+                    label: "Revenue by Week",
+                    backgroundColor: [
+                      "#36A2EB", "#FFCE56", "#FF6384"
+                    ],
+                    data: [23,45,67]
                   }
                 ]
               };
 
               new Chart(ctx, {
-                type: 'bar',
+                type: 'pie',
                 data: data
               });
 
