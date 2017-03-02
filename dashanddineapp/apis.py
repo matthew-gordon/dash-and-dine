@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from oauth2_provider.models import AccessToken
 
-from dashanddineapp.models import Restaurant, Meal, Order, OrderDetails
+from dashanddineapp.models import Restaurant, Meal,  Order, OrderDetails, Driver
 from dashanddineapp.serializers import RestaurantSerializer, MealSerializer, OrderDetailsSerializer, OrderSerializer
 
 ###############
@@ -101,12 +101,26 @@ def customer_get_latest_order(request):
         "order": order
     })
 
+def customer_driver_location(request):
+    access_token = AccessToken.objects.get(token = request.GET.get("access_token"),
+        expires__gt = timezone.now())
+
+    customer = access_token.user.customer
+
+    # Get driver's location related to this customer's current order
+    current_order = Order.objects.filter(customer = customer, status = Order.ONTHEWAY).last()
+    location = current_order.driver.location
+
+    return JsonResponse({
+        "location": location
+    })
+
 ###############
 ## RESTAURANT
 ###############
 
 def restaurant_order_notification(request, last_request_time):
-    notification = Order.objects.filter(restaurant=request.user.restaurant,
+    notification = Order.objects.filter(restaurant = request.user.restaurant,
         created_at__gt = last_request_time).count()
 
     return JsonResponse({
@@ -235,4 +249,24 @@ def driver_get_revenue(request):
 
     return JsonResponse({
         "revenue": revenue
+    })
+
+# POST:
+# params: access_token, "latitude, longitude"
+@csrf_exempt
+def driver_update_location(request):
+    if request.method == "POST":
+
+        # Get token
+        access_token = AccessToken.objects.get(token = request.POST.get("access_token"),
+            expires__gt = timezone.now())
+
+        driver = access_token.user.driver
+
+        # Set location string in database(driver table)
+        driver.location = request.POST["location"]
+        driver.save()
+
+    return JsonResponse({
+        "status": "success"
     })
