@@ -81,7 +81,7 @@ def customer_add_order(request):
 
         if len(order_details) > 0:
 
-            # Step 1 - Create a charge: this will charge customer's card
+            # Step 1: Create a charge: this will charge customer's card
             charge = stripe.Charge.create(
                 amount = order_total * 100, # Amount in cents
                 currency = "usd",
@@ -90,7 +90,6 @@ def customer_add_order(request):
             )
 
             if charge.status != "failed":
-
                 # Step 2 - Create an Order
                 order = Order.objects.create(
                     customer = customer,
@@ -109,14 +108,9 @@ def customer_add_order(request):
                         sub_total = Meal.objects.get(id = meal["meal_id"]).price * meal["quantity"]
                     )
 
-                return JsonResponse({
-                    "status": "success"
-                })
+                return JsonResponse({"status": "success"})
             else:
-                return JsonResponse({
-                    "status": "failed",
-                    "error": "Failed to connect to stripe."
-                })
+                return JsonResponse({"status": "failed", "error": "Failed connect to Stripe."})
 
 def customer_get_latest_order(request):
     access_token = AccessToken.objects.get(token = request.GET.get("access_token"),

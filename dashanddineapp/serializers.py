@@ -57,7 +57,7 @@ class OrderMealSerializer(serializers.ModelSerializer):
         fields = ("id", "name", "price")
 
 class OrderDetailsSerializer(serializers.ModelSerializer):
-    meal = OrderMealSerializer
+    meal = OrderMealSerializer()
 
     class Meta:
         model = OrderDetails
