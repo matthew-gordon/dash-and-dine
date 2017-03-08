@@ -25,7 +25,7 @@ SECRET_KEY = 'kkea82uvum1dht@(=+gng!e+&=z$0w^3hp%+4-u-6)u04^0one'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dashndine.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['dashanddine.herokuapp.com', 'localhost']
 
 
 # Application definition

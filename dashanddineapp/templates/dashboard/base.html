@@ -1,0 +1,48 @@
+{% extends 'admin_base.html' %}
+
+{% block title %} Restaurant {% endblock %}
+
+{% block script %}
+  <script>
+    $(document).ready(()=> {
+      let now = new Date();
+      setInterval(() => {
+        $.ajax({
+          url: `/api/restaurant/order/notification/${now.toISOString()}/`,
+          success: (data) => {
+            if (data['notification'] === 0) {
+              $('.badge').text('');
+            } else {
+              $('.badge').text(data['notification']);
+            }
+          }
+        })
+      }, 3000)
+    })
+
+  </script>
+{% endblock %}
+
+{% block sidebar %}
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+        <li>
+          <a href="{% url 'restaurant-order' %}"
+          class="btn {% if request.path == restaurant_order_url %} active {% endif %}"> <i class="fa fa-cutlery fa-lg pull-left"></i>
+          Orders
+          <span class="badge"></span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'restaurant-meal' %}"
+          class="btn {% if request.path == restaurant_meal_url %} active {% endif %}"><i class="fa fa-list fa-lg pull-left"></i> Meals</a>
+        </li>
+        <li>
+          <a href="{% url 'restaurant-report' %}"
+            class="btn{% if request.path == restaurant_report_url %} active {% endif %}"><i class="fa fa-bar-chart fa-lg pull-left"></i> Reports</a>
+        </li>
+    </ul>
+</div>
+<!-- /.navbar-collapse -->
+{% endblock %}

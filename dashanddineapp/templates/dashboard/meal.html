@@ -1,0 +1,67 @@
+{% extends 'dashboard/base.html' %}
+
+{% block page %}
+<div class="container-fluid">
+
+<!-- Page Heading -->
+<div class="row">
+  <div class="col-lg-12">
+    <h1 class="page-header">
+    Meals <small> Overview</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li class="active">
+      <i class="fa fa-dashboard"></i> Dashboard / Meals
+      </li>
+    </ol>
+  </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Your Meals</h3>
+      </div>
+      <div class="panel-body">
+        <div class="text-right">
+          <a href="{% url 'restaurant-add-meal' %}" class="btn btn-success"> Add Meal</a>
+            <br>
+            <br>
+        </div>
+        <h2>Your menu:</h2>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+            <thead>
+              <tr class="bg-gray">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Short Description</th>
+                <th>Price</th>
+                <th class="text-center">Image</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for meal in meals %}
+                <tr>
+                  <td scope="row">{{ meal.id }}</td>
+                  <td><a href="{% url 'restaurant-edit-meal' meal.id %}">{{ meal.name }}</a></td>
+                  <td>{{ meal.short_description }}</td>
+                  <td>{{ meal.price }}</td>
+                  <td class="text-center"><img
+                      src="{{ MEDIA_URL }}{{ meal.image }}" class="img-rounded" width="50" height="50"></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.row -->
+
+</div>
+<!-- /.container-fluid -->
+{% endblock %}

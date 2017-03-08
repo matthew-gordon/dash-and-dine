@@ -14,6 +14,10 @@ def home(request):
     return redirect(restaurant_home)
 
 @login_required(login_url='/restaurant/sign-in/')
+def dashboard(request):
+    return render(request, 'dashboard/order.html')
+
+@login_required(login_url='/restaurant/sign-in/')
 def restaurant_home(request):
     return redirect(restaurant_order)
 
@@ -30,7 +34,7 @@ def restaurant_account(request):
             user_form.save()
             restaurant_form.save()
 
-    return render(request, 'restaurant/account.html', {
+    return render(request, 'dashboard/account.html', {
         "user_form": user_form,
         "restaurant_form": restaurant_form
     })
@@ -39,7 +43,7 @@ def restaurant_account(request):
 def restaurant_meal(request):
     meals = Meal.objects.filter(restaurant=request.user.restaurant).order_by("-id")
 
-    return render(request, 'restaurant/meal.html', {
+    return render(request, 'dashboard/meal.html', {
         "meals": meals
     })
 
@@ -85,7 +89,7 @@ def restaurant_order(request):
             order.save()
 
     orders = Order.objects.filter(restaurant=request.user.restaurant).order_by("-id")
-    return render(request, 'restaurant/order.html', {
+    return render(request, 'dashboard/order.html', {
         "orders": orders
     })
 
@@ -150,7 +154,7 @@ def restaurant_report(request):
             "data": [driver.total_order for driver in top3_drivers]
         }
 
-    return render(request, 'restaurant/report.html', {
+    return render(request, 'dashboard/report.html', {
         "revenue": revenue,
         "orders": orders,
         "meal": meal,
