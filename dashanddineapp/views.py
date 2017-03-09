@@ -60,7 +60,7 @@ def restaurant_add_meal(request):
             meal.save()
             return redirect('restaurant-meal')
 
-    return render(request, 'restaurant/add_meal.html', {
+    return render(request, 'dashboard/add_meal.html', {
         "form": form
     })
 
@@ -75,7 +75,7 @@ def restaurant_edit_meal(request, meal_id):
             form.save()
             return redirect('restaurant-meal')
 
-    return render(request, 'restaurant/edit_meal.html', {
+    return render(request, 'dashboard/edit_meal.html', {
         "form": form
     })
 
@@ -101,7 +101,7 @@ def restaurant_get_customers(request):
     )
     customers = Customer.objects.all()
 
-    return render(request, 'restaurant/customers.html', {
+    return render(request, 'dashboard/customers.html', {
         "customers": customers,
         "orders": delivered_orders
     })

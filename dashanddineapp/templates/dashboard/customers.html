@@ -1,10 +1,13 @@
-{% extends 'restaurant/base.html' %}
+{% extends 'dashboard/base.html' %}
+{% load bootstrap3 %}
 
 {% block page %}
+<div class="">
+  Hello
   {% for order in orders%}
     <h2>Restaurant: {{ order.restaurant }}</h2>
     <h2>{{ order.customer }}</h2>
     <h2>{{ order.created_at }}</h2>
   {% endfor %}
-
+</div>
 {% endblock %}

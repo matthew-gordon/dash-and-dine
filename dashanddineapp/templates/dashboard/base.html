@@ -25,6 +25,11 @@
 
 {% block sidebar %}
 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+
+{% url 'restaurant-order' as restaurant_order_url %}
+{% url 'restaurant-meal' as restaurant_meal_url %}
+{% url 'restaurant-report' as restaurant_report_url %}
+
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
         <li class="text-center">
